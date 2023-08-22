@@ -1,0 +1,29 @@
+.title-h2 {
+	margin: 0;
+	line-height: var(--line-height-title-h2);
+	font: {
+		size: var(--font-size-title-h2);
+	};
+
+	span {
+		font-family: var(--font-secondary);
+	}
+
+	&_white {
+		color: var(--color-white);
+	}
+
+	&_uppercase {
+		text-transform: uppercase;
+	}
+
+	@include tablet {
+		--font-size-title-h2: 40px;
+		--line-height-title-h2: 100%;
+	}
+
+	@include desktop {
+		--font-size-title-h2: 88px;
+		--line-height-title-h2: 94px;
+	}
+}

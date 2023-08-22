@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	vertical-align: top;
+	text-decoration: none;
+	transition: 0.3s ease-in-out;
+}
+
+button {
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+img {
+	vertical-align: top;
+	height: auto;
+	max-width: 100%;
+}

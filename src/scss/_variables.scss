@@ -1,0 +1,33 @@
+:root {
+	/* --font-- */
+	--font-size-base: 14px;
+	--font-size-title-h1: 32px;
+	--font-size-title-h2: 34px;
+	--font-size-title-h3: 24px;
+	--font-size-button: 14px;
+	--line-height-base: 18px;
+	--line-height-title-h1: 34px;
+	--line-height-title-h2: 32px;
+	--line-height-title-h3: 100%;
+	--line-height-button: 120%;
+	--font-primary: "Ony Sans", arial, sans-serif;
+	--font-secondary: "ONY Realist", "times new roman", serif;
+
+	/* --color-- */
+	--color-greyscale-black: #2b323a;
+	--color-white: #fff;
+	--color-ligth-grey: #f1edeb;
+	--color-grey: #dfd8d4;
+	--color-dark-grey: #6a6f75;
+	--color-orange: #fe6e36;
+	--color-dark-orange: #e9602a;
+	--color-darken-orange: #bf5c38;
+	--color-red: #f63f3f;
+
+	/* --grid-- */
+	--padding-content: 15px;
+}
+
+/* --viewports-- */
+$tablet-width: 744;
+$desktop-width: 1440;

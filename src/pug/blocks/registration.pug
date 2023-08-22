@@ -1,0 +1,26 @@
+section#registration-section.registration
+	.wrapper.registration__wrapper
+		p.title-h2.title-h2_uppercase.title-h2_white.registration__title Безопасность<br> <span>за нами</span>
+		form.js-form-registration.form(action="" method="post")
+			p.title-h2.title-h2_white.form__title Регистрация
+			.form__item.form__item_name
+				input#user-name.form__input(type="text" name="user_name" required)
+				label.form__label(for="user-name") ФИО
+			.form__item
+				input#user-company.form__input(type="text" name="user_company" required)
+				label.form__label(for="user-company") Ваша компания
+			.form__item
+				input#user-job-title.form__input(type="text" name="user_job-title" required)
+				label.form__label(for="user-job-title") Должность
+			.form__item
+				input#user-phone.form__input.js-phone-input(type="tel" name="user_phone" required)
+				label.form__label(for="user-phone") Номер телефона
+			.form__item
+				input#user-mail.form__input(type="email" name="user_mail" required)
+				label.form__label(for="user-mail") Оставьте ваш email
+			.form__submit-wrapper
+				button.btn.form__submit(type="submit") Регистрация
+		.success
+			p.title-h2.title-h2_white.success__title Благодарим, ваша заявка получена!
+			p.success__text.text Подтверждение участия приходит на почту, только после прохождения модерации.
+			p.success__text.text Если остались вопросы, напишите нам <a href="mailto:event@rt-solar.ru" target="_blank">event@rt-solar.ru</a>

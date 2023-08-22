@@ -1,0 +1,14 @@
+.title-h3 {
+	margin: 0;
+	font-size: var(--font-size-title-h3);
+	line-height: var(--line-height-title-h3);
+	letter-spacing: -0.48px;
+
+	@include tablet {
+		--font-size-title-h3: 24px;
+	}
+
+	@include desktop {
+		--font-size-title-h3: 42px;
+	}
+}

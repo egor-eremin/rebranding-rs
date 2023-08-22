@@ -1,0 +1,22 @@
+.page {
+	height: 100%;
+}
+
+.page__body {
+	min-height: 100%;
+	line-height: var(--line-height-base);
+	color: var(--color-greyscale-black);
+	background-color: var(--color-ligth-grey);
+	font: {
+		family: var(--font-primary);
+		feature-settings: "clig" off, "liga" off;
+		size: var(--font-size-base);
+		variant-numeric: stacked-fractions;
+		weight: 400;
+	};
+
+	@include tablet {
+		--font-size-base: 18px;
+		--line-height-base: 20px;
+	}
+}

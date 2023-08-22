@@ -1,0 +1,60 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid var(--color-orange);
+	border-radius: 18px;
+	padding: 10px 15px 9px;
+	min-width: 237px;
+	line-height: var(--line-height-button);
+	letter-spacing: -0.18px;
+	text-transform: uppercase;
+	color: var(--color-orange);
+	background-color: transparent;
+	font: {
+		size: var(--font-size-button);
+		weight: 500;
+	};
+
+	&_white {
+		border-width: 1px;
+		border-color: var(--color-white);
+		color: var(--color-white);
+
+		&:hover {
+			border-color: var(--color-orange);
+		}
+
+		&:active {
+			border-color: var(--color-dark-orange);
+		}
+	}
+
+	&:hover {
+		color: var(--color-white);
+		background-color: var(--color-orange);
+	}
+
+	&:active {
+		border-color: var(--color-dark-orange);
+		color: var(--color-white);
+		background-color: var(--color-dark-orange);
+	}
+
+	@include tablet {
+		--font-size-button: 18px;
+		--line-height-button: 110%;
+
+		padding: 9px 15px 8px;
+	}
+
+	@include desktop {
+		--font-size-button: 22px;
+		--line-height-button: 120%;
+
+		border-radius: 43px;
+		padding: 14px 15px;
+		min-width: 446px;
+		letter-spacing: -0.22px;
+	}
+}

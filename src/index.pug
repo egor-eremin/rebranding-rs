@@ -1,0 +1,19 @@
+extends pug/base
+
+append vars
+	- title = "Ребрендинг Ростелеком Solar"
+	- description = "Серьезная бизнес повестка в формате иммерсивной презентации-манифеста. Поделимся планами. Удивим новостями."
+	- link.icon = "favicon.ico"
+	- link.iconSvg = "favicons/favicon.svg"
+	- link.appleTouchIcon = "favicons/180.png"
+	- link.manifest = "favicons/site.webmanifest"
+
+block body-start
+	include pug/blocks/header
+block content
+	include pug/blocks/members
+	include pug/blocks/program
+	include pug/blocks/registration
+block footer
+	include pug/blocks/footer
+

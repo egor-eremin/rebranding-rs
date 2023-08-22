@@ -1,0 +1,112 @@
+.footer {
+	padding-bottom: 24px;
+	background-color: var(--color-greyscale-black);
+
+	@include desktop {
+		padding-bottom: 33px;
+	}
+}
+
+.footer__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+
+	@include tablet {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.footer__logo-footer {
+	width: 153px;
+}
+
+.footer__address {
+	letter-spacing: -0.14px;
+	text-align: center;
+	color: var(--color-white);
+
+	@include tablet {
+		max-width: 288px;
+		font-size: 14px;
+		line-height: 16px;
+
+		br {
+			display: none;
+		}
+	}
+
+	@include desktop {
+		max-width: 446px;
+		font-size: 15px;
+		line-height: 111.3%;
+		letter-spacing: -0.15px;
+
+		br {
+			display: block;
+		}
+	}
+}
+
+.footer__social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--color-white);
+	border-radius: 50%;
+	width: 47px;
+	height: 47px;
+	transition: 0.3s ease-in-out;
+
+	svg {
+		margin-left: -2px;
+		fill: var(--color-white);
+		transition: 0.3s ease-in-out;
+	}
+
+	&:hover {
+		border-color: var(--color-orange);
+
+		svg {
+			fill: var(--color-orange);
+		}
+	}
+
+	@include tablet {
+		width: 40px;
+		height: 40px;
+	}
+
+	@include desktop {
+		width: 47px;
+		height: 47px;
+	}
+}
+
+.footer__svg-telegram {
+	width: 21px;
+	height: 18px;
+}
+
+.footer__svg-vk {
+	width: 26px;
+	height: 16px;
+}
+
+.footer__social-list {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	gap: 10px;
+
+	@include tablet {
+		gap: 20px;
+	}
+
+	@include desktop {
+		gap: 10px;
+	}
+}

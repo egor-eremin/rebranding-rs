@@ -1,0 +1,25 @@
+.title-h1 {
+	margin: 0;
+	line-height: var(--line-height-title-h1);
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--color-white);
+	font: {
+		size: var(--font-size-title-h1);
+		weight: 400;
+	};
+
+	span {
+		font-family: var(--font-secondary);
+	}
+
+	@include tablet {
+		--font-size-title-h1: 52px;
+		--line-height-title-h1: 52px;
+	}
+
+	@include desktop {
+		--font-size-title-h1: 88px;
+		--line-height-title-h1: 94px;
+	}
+}
