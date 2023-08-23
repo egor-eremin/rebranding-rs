@@ -119,6 +119,7 @@
 .members__slider-item {
 	width: 114px !important;
 	transition: 0.3s ease-in-out;
+	cursor: pointer;
 
 	&.swiper-slide-active {
 		width: 176px !important;
@@ -215,7 +216,7 @@
 }
 
 .members__arrow-prev {
-	margin-right: 8px;
+	margin-right: 4px;
 	width: 14px;
 	height: 18px;
 }
@@ -260,6 +261,7 @@
 	letter-spacing: -0.48px;
 	text-transform: uppercase;
 	color: var(--color-orange);
+	user-select: none;
 
 	@include tablet {
 		margin-right: 10px;

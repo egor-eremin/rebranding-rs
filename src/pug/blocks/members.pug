@@ -1,4 +1,4 @@
-section.members
+section.members.section-animation
 	.wrapper.members__wrapper
 		.members__header
 			p.title-h2.members__title Здесь говорят о реальной безопасности
@@ -7,17 +7,15 @@ section.members
 					| <svg class="members__arrow-prev" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 					| <path d="M12.924 5.618H3.348L7.236 9.488H5.184L0.54 4.862L5.184 0.235999H7.236L3.348 4.106H12.924V5.618Z"/>
 					| </svg>
-					| <svg class="members__decor-prev" width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-					| <path fill-rule="evenodd" clip-rule="evenodd" d="M9.0712 0.000275638H9.01555L8.9996 0.000173752C7.16718 0.000173752 5.68172 4.02962 5.68172 9.00019C5.68172 13.9504 7.15506 17.9672 8.97713 18C4.01708 17.9877 0 13.963 0 9.00002C0 4.02944 4.02944 0 9.00001 0C9.02376 0 9.04749 9.19915e-05 9.0712 0.000275638Z"/>
-					| </svg>
-					//+svg("arrow-prev")(class="members__arrow-prev")
-					//+svg("decor-prev")(class="members__decor-prev")
+					.slider-progress
+						.slider-progress__wrapper
+							.slider-progress__moon
+							.slider-progress__darkside-moon
 				.members__slide-number 01
 				.members__slider-nav-button.members__slider-nav-button_next.swiper-button-next
 					| <svg class="members__arrow-next" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 					| <path d="M10.1873 4.106L6.29929 0.235999H8.35129L12.9953 4.862L8.35129 9.488H6.29929L10.1873 5.618H0.611289V4.106H10.1873Z"/>
 					| </svg>
-					//+svg("arrow-next")(class="members__arrow-next")
 		.members__slider.swiper.js-member-slider
 			.members__slider-wrapper.swiper-wrapper.js-slider
 				.members__slider-item.swiper-slide
@@ -68,14 +66,6 @@ section.members
 						p.members__name.text Игорь Хереш
 						p.members__job-title.text Директор Департамента управления активами и M&A <span>«РТК-Солар»</span>
 						p.members__description.text Отраслевые инвестиции: развиваем свой бизнес&nbsp;&mdash; развиваем рынок.
-				.members__slider-item.swiper-slide
-					.members__avatar
-						img.members__img(src="images/speaker-7.jpg" alt="Роман Чаплыгин")
-						img.members__img-grey(src="images/speaker-grey-7.jpg" alt="Роман Чаплыгин")
-					.members__text
-						p.members__name.text Роман Чаплыгин
-						p.members__job-title.text Директор по консалтингу <span>«РТК-Солар»</span>
-						p.members__description.text Эффективно – значит комплексно. Путь к созданию системной архитектуры для решения бизнес-задач клиентов.
 				.members__slider-item.swiper-slide
 					.members__avatar
 						img.members__img(src="images/speaker-8.jpg" alt="Марина Овсянникова")

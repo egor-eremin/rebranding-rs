@@ -24,6 +24,7 @@ function initSlider() {
 		touchRatio: 0.5,
 		loop: true,
 		slidesPerGroup: 1,
+		slideToClickedSlide: true,
 		navigation: {
 			prevEl: '.members__slider-nav-button_prev',
 			nextEl: '.members__slider-nav-button_next',
@@ -41,6 +42,48 @@ function initSlider() {
 				let currentSlideIndex = currentSlide.dataset.slideItem;
 				let formattedSlideNumber = 0 + String(currentSlideIndex);
 				document.querySelector('.members__slide-number').textContent = formattedSlideNumber;
+
+				const moonElement = document.querySelector('.slider-progress__darkside-moon');
+				const moonElementTwo = document.querySelector('.slider-progress__moon');
+				const progress = Math.round(currentSlideIndex / sliderItems.length * 100);
+				const stretchFactor = 1.5;
+
+				if (progress < 50) {
+					moonElementTwo.style.removeProperty('width');
+					moonElementTwo.style.removeProperty('height');
+					moonElementTwo.style.removeProperty('right');
+					moonElementTwo.style.removeProperty('left');
+					moonElementTwo.style.removeProperty('z-index');
+
+					moonElement.style.removeProperty('border-radius');
+					moonElement.style.left = `${progress}%`;
+					moonElement.style.width = `${100 + progress * stretchFactor}%`;
+					moonElement.style.height = `${100 + progress * stretchFactor}%`;
+				} else if (progress === 50) {
+					moonElement.style.borderRadius = 0;
+					moonElement.style.left = `${progress}%`;
+					moonElement.style.removeProperty('width');
+					moonElement.style.removeProperty('height');
+
+					moonElementTwo.style.removeProperty('width');
+					moonElementTwo.style.removeProperty('height');
+					moonElementTwo.style.removeProperty('right');
+					moonElementTwo.style.removeProperty('left');
+					moonElementTwo.style.removeProperty('z-index');
+				} else {
+					moonElement.style.removeProperty('border-radius');
+					moonElement.style.removeProperty('left');
+					moonElement.style.removeProperty('width');
+					moonElement.style.removeProperty('height');
+
+					moonElementTwo.style.width = `${100 + (100 - progress) * stretchFactor}%`;
+					// moonElementTwo.style.width = 100 + progress * stretchFactor + '%';
+					moonElementTwo.style.height = `${100 + (100 - progress) * stretchFactor}%`;
+					// moonElementTwo.style.height = 100 + progress * stretchFactor + '%';
+					moonElementTwo.style.right = `${100 - progress}%`;
+					moonElementTwo.style.left = 'auto';
+					moonElementTwo.style.zIndex = 1;
+				}
 			},
 		},
 		modules: [Navigation, Pagination],
@@ -171,14 +214,32 @@ function validationForm() {
 		},
 		// eslint-disable-next-line no-shadow
 		submitHandler: (form) => {
-			const successBlock = document.querySelector('.success');
-			$(form).find('.form__input').val('').removeClass('form__input_not-empty valid');
-			$(form).hide();
-			$('.success').show();
+			const formData = $(form).serialize();
 
-			successBlock.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
+			$.ajax({
+				type: 'POST',
+				url: 'mailer.php',
+				data: formData,
+				success: (data) => {
+					let result = JSON.parse(data);
+
+					if (result.result !== 'error') {
+						const successBlock = document.querySelector('.success');
+						$(form).find('.form__input').val('').removeClass('form__input_not-empty valid');
+						$(form).hide();
+						$('.success').show();
+
+						successBlock.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start',
+						});
+					} else if (result.code === 'email') {
+						console.log('ошибка отправки');
+					}
+				},
+				error: (error) => {
+					console.error('Произошла ошибка при отправке данных: ', error);
+				},
 			});
 		},
 	});
@@ -196,6 +257,30 @@ function changesVideoPlaybackSpeed() {
 	});
 }
 
+function initAnimationBlock() {
+	const controller = new ScrollMagic.Controller();
+	const blocksAnimation = document.querySelectorAll('.section-animation');
+
+	blocksAnimation.forEach((block, item) => {
+		const triggerElement = document.querySelector('.registration');
+		const stylesElement = window.getComputedStyle(triggerElement);
+		const paddingTopValue = parseInt(stylesElement.paddingTop, 10);
+
+		let offsetTrigger = item === 2 ? -paddingTopValue : 0;
+
+		// eslint-disable-next-line no-unused-vars
+		const scene = new ScrollMagic.Scene({
+			reverse: true,
+			triggerElement: block,
+			triggerHook: 0.83,
+			offset: offsetTrigger,
+		})
+			.setClassToggle(block, 'section-animation_active')
+			.addTo(controller);
+			// .addIndicators();
+	});
+}
+
 addClassForInput();
 animationToBlock();
 initAnimationLineProgram();
@@ -204,3 +289,4 @@ initSlider();
 addedMaskPhone();
 validationForm();
 changesVideoPlaybackSpeed();
+initAnimationBlock();

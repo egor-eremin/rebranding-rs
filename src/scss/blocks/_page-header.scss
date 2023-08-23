@@ -10,8 +10,7 @@
 	@include desktop {
 		padding-top: 25px;
 		padding-bottom: 67px;
-		height: 100vh;
-		min-height: 813px;
+		height: 813px;
 	}
 }
 
@@ -124,6 +123,10 @@
 
 	@include tablet {
 		top: 42px;
+	}
+
+	@include laptop {
+		top: -9px;
 	}
 
 	@include desktop {
