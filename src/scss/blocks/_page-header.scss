@@ -138,3 +138,9 @@
 		width: 1420px;
 	}
 }
+
+.page-header__registartion-bottom {
+	@include desktop {
+		min-width: 260px;
+	}
+}

@@ -18,9 +18,14 @@ section#registration-section.registration.section
 			.form__item
 				input#user-mail.form__input(type="email" name="user_mail" required)
 				label.form__label(for="user-mail") Оставьте ваш email
+			.form__item.form__item-checkbox
+				label.form__label-checkbox
+					input.form__checkbox.visually-hidden(type="checkbox" name="personal_data" required)
+					span.form__fake-checked
+					span.form__checkbox-text Нажимая «Регистрация», вы даете согласие на обработку своих данных согласно <a href="/about_company/information/legal/">политике обработки персональных данных.</a>
 			.form__submit-wrapper
 				button.btn.form__submit(type="submit") Регистрация
 		.success
 			p.title-h2.title-h2_white.success__title Благодарим, ваша заявка получена!
-			p.success__text.text Подтверждение участия приходит на почту, только после прохождения модерации.
+			p.success__text.text Подтверждение участия приходит на почту, только после прохождения модерации. Предполагаемый состав до 3 человек от компании.
 			p.success__text.text Если остались вопросы, напишите нам <a href="mailto:event@rt-solar.ru" target="_blank">event@rt-solar.ru</a>

@@ -68,9 +68,3 @@
 .registration__wrapper {
 	position: relative;
 }
-
-.page-header__registartion-bottom {
-	@include desktop {
-		min-width: 260px;
-	}
-}

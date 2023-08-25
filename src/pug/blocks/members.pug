@@ -7,10 +7,14 @@ section.members.section-animation
 					| <svg class="members__arrow-prev" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 					| <path d="M12.924 5.618H3.348L7.236 9.488H5.184L0.54 4.862L5.184 0.235999H7.236L3.348 4.106H12.924V5.618Z"/>
 					| </svg>
-					.slider-progress
-						.slider-progress__wrapper
-							.slider-progress__moon
-							.slider-progress__darkside-moon
+					.moon-wrapper
+						| <svg height="100" width="50" class="moon moon-left">
+						|     <circle cx="50" cy="50" r="50" stroke="#fe6e36" fill="#fe6e36" class="bg"/>
+						|     <circle cx="50" cy="50" r="50" stroke="#fe6e36" fill="#f1edeb" class="fg moon-element-animate"/>
+						|   </svg><svg height="100" width="50" class="moon moon-right">
+						|     <circle cx="0" cy="50" r="50" stroke="#fe6e36" fill="#fe6e36" class="bg"/>
+						|     <circle cx="0" cy="50" r="50" stroke="#fe6e36" fill="#f1edeb" class="fg moon-element-animate"/>
+						|   </svg>
 				.members__slide-number 01
 				.members__slider-nav-button.members__slider-nav-button_next.swiper-button-next
 					| <svg class="members__arrow-next" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +37,7 @@ section.members.section-animation
 					.members__text
 						p.members__name.text Владимир Дрюков
 						p.members__job-title.text Директор Центра мониторинга и реагирования на кибератаки <span>«РТК-Солар»</span>
-						p.members__description.text Изучение хакеров, их инструментария и векторов атак. Знания – золото, и как научиться их «намывать».
+						p.members__description.text Аналитика и информация об угрозах: знание злоумышленника – основа защиты, опыт последних лет – фундамент нового сервиса нового уровня.
 				.members__slider-item.swiper-slide
 					.members__avatar
 						img.members__img(src="images/speaker-3.jpg" alt="Ирина Нестерова")
@@ -49,7 +53,7 @@ section.members.section-animation
 					.members__text
 						p.members__name.text Николай Сивак
 						p.members__job-title.text Коммерческий директор <span>«РТК-Солар»</span>
-						p.members__description.text Кибербезопасность – катализатор роста коммерческого сегмента. Как разговаривать с бизнесом языком финансовых моделей.
+						p.members__description.text Кибербезопасность как катализатор роста бизнеса. Потребности коммерческих клиентов и новые домены экспертизы.
 				.members__slider-item.swiper-slide
 					.members__avatar
 						img.members__img(src="images/speaker-5.jpg" alt="Галина Рябова")
@@ -57,7 +61,7 @@ section.members.section-animation
 					.members__text
 						p.members__name.text Галина Рябова
 						p.members__job-title.text Директор Центра технологий кибербезопасности <span>«РТК-Солар»</span>
-						p.members__description.text Атакоцентричные технологии – что это? Продуктовый портфель: как предложить решение 100% задач любой компании.
+						p.members__description.text Атакоцентричные технологии и движение к экосистеме продуктов: как предложить решение 100% задач любой компании.
 				.members__slider-item.swiper-slide
 					.members__avatar
 						img.members__img(src="images/speaker-6.jpg" alt="Игорь Хереш")
@@ -73,5 +77,5 @@ section.members.section-animation
 					.members__text
 						p.members__name.text Марина Овсянникова
 						p.members__job-title.text Директор по маркетингу и PR <span>«РТК-Солар»</span>
-						p.members__description.text Особенности коммуникаций в период изменений. Интересно, когда сложно.
+						p.members__description.text Как компания отвечает на новые вызовы рынка. Интересно, когда сложно.
 		button.btn.members__btn.js-go-to-registration(data-target="registration-section") Попасть на мероприятие

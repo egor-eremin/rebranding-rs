@@ -1,0 +1,37 @@
+.moon-wrapper {
+	position: relative;
+	left: 34px;
+	display: flex;
+	transform: scale(0.2) rotate(180deg);
+}
+
+.moon-left,
+.moon-right {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+	width: 50px;
+}
+
+.moon-left .bg,
+.moon-right .bg {
+	stroke-width: 0;
+}
+
+.moon-left .bg {
+	fill: var(--color-ligth-grey);
+}
+
+.moon-left .fg {
+	fill: #fe6e36;
+	transform: scaleX(0) translateX(0);
+	transform-origin: 0% 0%;
+}
+
+.moon-right .fg {
+	transform: scaleX(1);
+}
+
+.moon-element-animate {
+	transition: 0.2s ease-out;
+}

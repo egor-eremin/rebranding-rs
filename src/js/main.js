@@ -17,6 +17,17 @@ function initSlider() {
 		slider.appendChild(clone);
 	});
 
+	function removeTransition() {
+		const animateElements = document.querySelectorAll('.moon-element-animate');
+
+		for (const animateElement of animateElements) {
+			animateElement.style.transition = 'none';
+			setTimeout(() => {
+				animateElement.style.removeProperty('transition');
+			}, 0.3);
+		}
+	}
+
 	const swiper = new Swiper('.js-member-slider', {
 		initialSlide: sliderItems.length,
 		slidesPerView: 3,
@@ -43,47 +54,26 @@ function initSlider() {
 				let formattedSlideNumber = 0 + String(currentSlideIndex);
 				document.querySelector('.members__slide-number').textContent = formattedSlideNumber;
 
-				const moonElement = document.querySelector('.slider-progress__darkside-moon');
-				const moonElementTwo = document.querySelector('.slider-progress__moon');
 				const progress = Math.round(currentSlideIndex / sliderItems.length * 100);
-				const stretchFactor = 1.5;
 
-				if (progress < 50) {
-					moonElementTwo.style.removeProperty('width');
-					moonElementTwo.style.removeProperty('height');
-					moonElementTwo.style.removeProperty('right');
-					moonElementTwo.style.removeProperty('left');
-					moonElementTwo.style.removeProperty('z-index');
+				const updateMoon = (phase) => {
+					let phaseScale = 1;
+					let phaseTrans = 50;
+					let phaseRight = 0;
 
-					moonElement.style.removeProperty('border-radius');
-					moonElement.style.left = `${progress}%`;
-					moonElement.style.width = `${100 + progress * stretchFactor}%`;
-					moonElement.style.height = `${100 + progress * stretchFactor}%`;
-				} else if (progress === 50) {
-					moonElement.style.borderRadius = 0;
-					moonElement.style.left = `${progress}%`;
-					moonElement.style.removeProperty('width');
-					moonElement.style.removeProperty('height');
+					if (phase <= 50) {
+						phaseRight = 1 - phase / 50;
+					}
+					document.querySelector('.moon-right .fg').style.transform = `scaleX(${phaseRight})`;
 
-					moonElementTwo.style.removeProperty('width');
-					moonElementTwo.style.removeProperty('height');
-					moonElementTwo.style.removeProperty('right');
-					moonElementTwo.style.removeProperty('left');
-					moonElementTwo.style.removeProperty('z-index');
-				} else {
-					moonElement.style.removeProperty('border-radius');
-					moonElement.style.removeProperty('left');
-					moonElement.style.removeProperty('width');
-					moonElement.style.removeProperty('height');
+					if (phase >= 50) {
+						phaseScale = 1 - (phase - 50) / 50;
+						phaseTrans = 50 * phaseScale;
+					}
+					document.querySelector('.moon-left .fg').style.transform = `translate(${phaseTrans}px, 0) scaleX(${1 - phaseScale})`;
+				};
 
-					moonElementTwo.style.width = `${100 + (100 - progress) * stretchFactor}%`;
-					// moonElementTwo.style.width = 100 + progress * stretchFactor + '%';
-					moonElementTwo.style.height = `${100 + (100 - progress) * stretchFactor}%`;
-					// moonElementTwo.style.height = 100 + progress * stretchFactor + '%';
-					moonElementTwo.style.right = `${100 - progress}%`;
-					moonElementTwo.style.left = 'auto';
-					moonElementTwo.style.zIndex = 1;
-				}
+				updateMoon(progress);
 			},
 		},
 		modules: [Navigation, Pagination],
@@ -100,6 +90,30 @@ function initSlider() {
 	});
 
 	swiper.init();
+	// eslint-disable-next-line func-names
+	swiper.on('slideNextTransitionStart', function () {
+		const curSlidendex = swiper.realIndex;
+		const nextSlidendex = swiper.realIndex + 1;
+		const allSlides = this.slides.length;
+		// console.log(`cur: ${curSlidendex}, next: ${nextSlidendex}, all: ${allSlides}`);
+
+		if (curSlidendex === allSlides / 2 && nextSlidendex === allSlides / 2 + 1 ||
+			curSlidendex === 0 && nextSlidendex === 1) {
+			removeTransition();
+		} 
+	});
+
+	// eslint-disable-next-line func-names
+	swiper.on('slidePrevTransitionStart', function () {
+		const curSlidendex = swiper.realIndex;
+		const nextSlidendex = swiper.realIndex + 1;
+		const allSlides = this.slides.length;
+
+		if (curSlidendex === allSlides / 2 - 1 && nextSlidendex === allSlides / 2 ||
+			curSlidendex === allSlides - 1 && nextSlidendex === allSlides) {
+			removeTransition();
+		}
+	});
 }
 
 function initAnimationLineProgram() {
@@ -234,11 +248,23 @@ function validationForm() {
 							block: 'start',
 						});
 					} else if (result.code === 'email') {
+						// eslint-disable-next-line no-console
 						console.log('ошибка отправки');
+						// eslint-disable-next-line no-alert
+						alert('Произошла ошибка при отправке данных');
 					}
+					// eslint-disable-next-line no-undef
+					dataLayer.push({
+						event: 'form_submit',
+						formType: 'newBrand',
+						formName: 'registration',
+					});
 				},
 				error: (error) => {
+					// eslint-disable-next-line no-console
 					console.error('Произошла ошибка при отправке данных: ', error);
+					// eslint-disable-next-line no-alert
+					alert('Произошла ошибка при отправке данных');
 				},
 			});
 		},

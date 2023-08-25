@@ -207,15 +207,27 @@
 }
 
 .members__slider-buttons {
+	position: absolute;
+	left: -69px;
+	bottom: -40px;
 	display: flex;
 	align-items: center;
 
+	@include tablet {
+		left: auto;
+		right: 2px;
+		bottom: -43px;
+	}
+
 	@include desktop {
-		transform: translateY(12px);
+		right: 2px;
+		bottom: -53px;
 	}
 }
 
 .members__arrow-prev {
+	position: relative;
+	left: 70px;
 	margin-right: 4px;
 	width: 14px;
 	height: 18px;
@@ -269,12 +281,15 @@
 }
 
 .members__header {
+	position: relative;
 	margin-bottom: 24px;
+	padding-bottom: 19px;
 
 	@include tablet {
 		display: flex;
 		align-items: flex-end;
 		justify-content: space-between;
+		padding-bottom: 0;
 	}
 
 	@include desktop {

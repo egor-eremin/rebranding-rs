@@ -29,8 +29,7 @@
 	height: 100%;
 }
 
-.slider-progress__moon,
-.slider-progress__darkside-moon {
+.slider-progress__moon-element {
 	position: absolute;
 	left: 0;
 	top: 50%;
@@ -41,6 +40,7 @@
 	transform: translateY(-50%);
 }
 
-.slider-progress__darkside-moon {
+.slider-progress__moon-element_1 {
+	z-index: 1;
 	background-color: var(--color-ligth-grey);
 }
